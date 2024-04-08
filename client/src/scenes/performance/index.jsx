@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "components/Header";
 import CustomColumnMenu from "components/DataGridCustomColumnMenu";
+import {GridColumnMenuContainer,GridFilterMenuItem,HideGridColMenuItem} from "@mui/x-data-grid";
 
 const Performance = () => {
   const theme = useTheme();
@@ -81,9 +82,14 @@ const Performance = () => {
           getRowId={(row) => row._id}
           rows={(data && data.sales) || []}
           columns={columns}
-          components={{
-            ColumnMenu: CustomColumnMenu,
-          }}
+          slots={{Toolbar: CustomColumnMenu}}
+          slotProps={{Toolbar: {GridColumnMenuContainer, GridFilterMenuItem, HideGridColMenuItem}}}
+
+          //components={{Toolbar: DataGridCustomToolbar}}
+          //componentsProps={{toolbar: {searchInput, setSearchInput, setSearch}}}
+          //components={{
+           // ColumnMenu: CustomColumnMenu,
+          //}}
         />
       </Box>
     </Box>

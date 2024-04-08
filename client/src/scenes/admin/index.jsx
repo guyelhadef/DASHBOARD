@@ -86,9 +86,6 @@ const Admin = () => {
           getRowId={(row) => row._id}
           rows={data || []}
           columns={columns}
-          //slots={{toolbar:DataGridCustomToolbar}}
-          //slotProps={{toolbar: {searchInput, setSearchInput, setSearch}}}
-
           components={{
             ColumnMenu: CustomColumnMenu,
           }}
